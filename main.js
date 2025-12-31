@@ -69,7 +69,7 @@ function addCurrentFruit() {
     isSleeping: true,
     render: {
       fillStyle: randomFruit.color,
-      sprite: { texture: `./public/${randomFruit.label}.png` },
+      sprite: { texture: `public/${randomFruit.label}.png` },
     },
     restitution: 0.2,
   });
@@ -153,7 +153,7 @@ Events.on(engine, "collisionStart", (event) => {
         {
           render: {
             fillStyle: newFruit.color,
-            sprite: { texture: `./public/${newFruit.label}.png` }
+            sprite: { texture: `public/${newFruit.label}.png` }
 
           },
           label: newFruit.label,
