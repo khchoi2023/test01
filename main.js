@@ -1,4 +1,4 @@
-import {
+const {
   Engine,
   Render,
   Runner,
@@ -7,8 +7,10 @@ import {
   Body,
   Sleeping,
   Events,
-} from "matter-js";
+} = Matter;
+
 import { FRUITS } from "./fruits.js";
+
 
 const engine = Engine.create();
 const render = Render.create({
