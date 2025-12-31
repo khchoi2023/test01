@@ -13,7 +13,7 @@ import { FRUITS } from "./fruits.js";
 
 // 1) 엔진/렌더 설정
 const engine = Engine.create();
-engine.world.gravity.y = 2; // 중력 명시적으로 설정
+engine.world.gravity.y = 2.5; // 중력 명시적으로 설정
 
 const render = Render.create({
   engine,
