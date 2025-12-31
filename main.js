@@ -127,11 +127,19 @@ window.onkeydown = (event) => {
     case "Space":
       if (!currentBody) return;
 
+
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+
+
+      
       disableAction = true;
 
       // 고정된 과일을 떨어지게 전환
       Body.setStatic(currentBody, false);              // dynamic으로 변경
-      Body.setVelocity(currentBody, { x: 0, y: 5 });   // 아래 방향으로 속도 부여
+      // Body.setVelocity(currentBody, { x: 0, y: 5 });   // 아래 방향으로 속도 부여
 
       // 이 과일은 이제 "떨어지는 중" → 조작 대상에서 제거
       const droppedBody = currentBody;
