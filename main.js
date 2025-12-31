@@ -65,14 +65,15 @@ function addCurrentFruit() {
   const randomFruit = getRandomFruit();
 
   const body = Bodies.circle(300, 50, randomFruit.radius, {
-    label: randomFruit.label,
-    isSleeping: true,
-    render: {
-      fillStyle: randomFruit.color,
-      sprite: { texture: `public/${randomFruit.label}.png` },
-    },
-    restitution: 0.2,
-  });
+  label: randomFruit.label,
+  isStatic: true,   // 공중에 고정
+  render: {
+    fillStyle: randomFruit.color,
+    sprite: { texture: `public/${randomFruit.label}.png` },
+  },
+  restitution: 0.2,
+});
+
 
   currentBody = body;
   currentFruit = randomFruit;
@@ -114,13 +115,25 @@ window.onkeydown = (event) => {
           });
       }, 5);
       break;
+
     case "Space":
+      if (!currentBody) return;   // 혹시 모를 방어용
+    
       disableAction = true;
-      Sleeping.set(currentBody, false);
+    
+      // 이제 과일을 "고정 → 움직이는 물체" 로 변경
+      Body.setStatic(currentBody, false);
+    
+      // 현재 과일은 떨어지는 중이니까 키 입력용 대상에서 제거
+      const droppedBody = currentBody;
+      currentBody = null;
+    
       setTimeout(() => {
-        addCurrentFruit();
+        addCurrentFruit();        // 새로운 과일을 위에 생성
         disableAction = false;
       }, 1000);
+      break;
+      
   }
 };
 
