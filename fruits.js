@@ -9,6 +9,4 @@ export const FRUITS = [
   { label: "pear",       radius: 160/2,    color: "#FDF176" },
   { label: "peach",      radius: 196/2,    color: "#FEB6AC" },
   { label: "pineapple",  radius: 220/2,    color: "#F7E608" },
-  { label: "melon",      radius: 270/2,    color: "#89CE13" },
-  { label: "watermelon", radius: 300/2,    color: "#26AA1E" },
 ];
