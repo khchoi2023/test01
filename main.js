@@ -8,7 +8,7 @@ import {
   Sleeping,
   Events,
 } from "matter-js";
-import { FRUITS } from "./fruits";
+import { FRUITS } from "./public";
 
 const engine = Engine.create();
 const render = Render.create({
