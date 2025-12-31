@@ -6,6 +6,7 @@ const {
   World,
   Body,
   Events,
+  Sleeping,
 } = Matter;
 
 import { FRUITS } from "./fruits.js";
