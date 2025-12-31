@@ -50,7 +50,10 @@ const topLine = Bodies.rectangle(310, 150, 620, 2, {
 World.add(world, [ground, leftWall, rightWall, topLine]);
 
 Render.run(render);
-Runner.run(engine);
+
+const runner = Runner.create();
+Runner.run(runner, engine);
+
 
 // 3) 상태 변수
 let currentBody = null;
