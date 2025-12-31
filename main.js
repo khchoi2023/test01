@@ -67,7 +67,7 @@ function addCurrentFruit() {
 
   const body = Bodies.circle(300, 50, randomFruit.radius, {
     label: randomFruit.label,
-    isStatic: true, // 공중에 고정된 상태로 생성
+    isSleeping: true,          // 잠자는 상태로 생성
     render: {
       fillStyle: randomFruit.color,
       sprite: { texture: `public/${randomFruit.label}.png` },
@@ -138,11 +138,9 @@ window.onkeydown = (event) => {
       disableAction = true;
 
       // 고정된 과일을 떨어지게 전환
-      Body.setStatic(currentBody, false);              // dynamic으로 변경
-      // Body.setVelocity(currentBody, { x: 0, y: 5 });   // 아래 방향으로 속도 부여
+      Sleeping.set(currentBody, false);
 
       // 이 과일은 이제 "떨어지는 중" → 조작 대상에서 제거
-      const droppedBody = currentBody;
       currentBody = null;
 
       setTimeout(() => {
